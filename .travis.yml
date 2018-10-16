@@ -28,7 +28,6 @@ cache:
   directories:
   - $HOME/.gradle
 
-
 script:
-- docker-compose build
+- docker-compose up
 - ./gradlew clean test

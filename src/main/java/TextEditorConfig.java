@@ -5,13 +5,12 @@ import org.springframework.context.annotation.Configuration;
 public class TextEditorConfig {
 
     @Bean
-    TextEditor getTextEditor(){
+    TextEditor getTextEditor() {
         return new TextEditor();
     }
 
     @Bean
-    public
-    SpellChecker getSpellChecker() {
+    public SpellChecker getSpellChecker() {
         return new SpellChecker();
     }
 }

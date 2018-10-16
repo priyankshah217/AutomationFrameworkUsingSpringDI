@@ -19,3 +19,14 @@ services:
     environment:
     - HUB_PORT_4444_TCP_ADDR=selenium-hub
     - HUB_PORT_4444_TCP_PORT=4444
+  testautomation:
+    build: .
+    depends_on:
+    - chrome
+    - firefox
+    volumes:
+    - ${HOME}/.gradle/caches/:/root/.gradle/caches
+    - ./build:/root/build
+    environment:
+    - BROWSER=chrome
+    - SELENIUM_HUB=selenium-hub

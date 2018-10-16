@@ -34,4 +34,4 @@ cache:
   - $HOME/.gradle
 
 script:
-- docker-compose up --build -d
+- docker-compose build

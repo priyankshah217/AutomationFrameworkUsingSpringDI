@@ -30,4 +30,3 @@ cache:
 
 script:
 - docker-compose up
-- ./gradlew clean test

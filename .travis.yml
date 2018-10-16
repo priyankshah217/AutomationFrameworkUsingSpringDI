@@ -4,7 +4,7 @@ language: java
 install: true
 
 os:
-- osx
+- linux
 
 jdk:
 - oraclejdk8

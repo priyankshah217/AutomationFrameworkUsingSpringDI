@@ -22,5 +22,5 @@ dependencies {
     testCompile group: 'org.springframework', name: 'spring-test', version: '5.0.8.RELEASE'
 // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.14.0'
-
+//    compile group: 'com.browserstack', name: 'browserstack-local-java', version: '1.0.2'
 }

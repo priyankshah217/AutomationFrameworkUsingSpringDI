@@ -26,9 +26,11 @@ public class TestConfig {
 
     @Bean
     @Scope("test")
-    public WebDriver getFirefoxDriver() throws MalformedURLException {
-        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-        return new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
+    public WebDriver getDriver() throws MalformedURLException {
+        String seleniumHub = System.getProperty("SeleniumHub");
+        DesiredCapabilities capabilities = System.getProperty("BrowserType").equalsIgnoreCase("chrome") ?
+                DesiredCapabilities.chrome() : DesiredCapabilities.firefox();
+        return new RemoteWebDriver(new URL("http://" + seleniumHub + ":4444/wd/hub"), capabilities);
     }
 
     @Bean

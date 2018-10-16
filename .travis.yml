@@ -1,0 +1,19 @@
+language: java
+install: true
+
+os:
+- osx
+
+jdk:
+- oraclejdk8
+
+script:
+- ./gradlew clean test
+
+branches:
+  only:
+  - master
+
+cache:
+  directories:
+  - $HOME/.gradle

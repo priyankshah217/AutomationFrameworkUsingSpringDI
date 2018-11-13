@@ -1,5 +1,6 @@
 package com.test.framework.tests;
 
+import com.test.framework.pages.AmazonHomePage;
 import com.test.framework.pages.GoogleHomePage;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,23 +12,18 @@ public class TestAmazonWeb extends BaseTest {
     @Autowired
     private GoogleHomePage googleHomePage;
 
+    @Autowired
+    private AmazonHomePage amazonHomePage;
+
     @Test
-    public void testYahooSample() {
-        driver.get("http://www.yahoo.in");
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    public void testGoogleSample() {
+        googleHomePage.launchURL("http://www.google.com");
+        googleHomePage.enterGoogleSearch();
     }
 
     @Test
     public void testAmazonSample() {
-        driver.get("http://www.amazon.in");
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        amazonHomePage.launchURL("http://www.amazon.in");
+        amazonHomePage.enterAmazonSearch();
     }
 }

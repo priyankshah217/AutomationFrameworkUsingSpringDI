@@ -1,24 +1,24 @@
 package com.test.framework.tests;
 
-import com.test.framework.listeners.SeleniumTestListener;
 import com.test.framework.tests.config.TestConfig;
-import org.junit.After;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestExecutionListeners;
-import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
+import org.testng.annotations.AfterMethod;
 
 
 @ContextConfiguration(classes = {TestConfig.class})
-@TestExecutionListeners(listeners = {SeleniumTestListener.class, DependencyInjectionTestExecutionListener.class})
-public class BaseTest {
+public class BaseTest extends AbstractTestNGSpringContextTests {
     @Autowired
-    WebDriver driver;
+    WebDriver webDriver;
 
-
-    @After
+    @AfterMethod
     public void tearDown() {
-        driver.quit();
+        if (webDriver == null) {
+            return;
+        }
+        webDriver.quit();
+        webDriver = null;
     }
 }

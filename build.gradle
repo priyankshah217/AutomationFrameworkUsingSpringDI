@@ -12,19 +12,13 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    // https://mvnrepository.com/artifact/org.springframework/spring-core
-    // https://mvnrepository.com/artifact/org.springframework/spring-context
     compile group: 'org.springframework', name: 'spring-context', version: '5.0.8.RELEASE'
-    // https://mvnrepository.com/artifact/javax.inject/javax.inject
     compile group: 'javax.inject', name: 'javax.inject', version: '1'
-    // https://mvnrepository.com/artifact/org.springframework/spring-test
     testCompile group: 'org.springframework', name: 'spring-test', version: '5.0.8.RELEASE'
-// https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.14.0'
-//    compile group: 'com.browserstack', name: 'browserstack-local-java', version: '1.0.2'
+    testCompile group: 'org.testng', name: 'testng', version: '7.0.0-beta1'
 }
 task e2e(type: Test) {
-    useJUnit()
+    useTestNG()
     systemProperties System.getProperties()
 }

@@ -12,6 +12,9 @@ public class GoogleHomePage extends BasePage {
 
     public void enterGoogleSearch() {
         hardWait();
+//        WebDriverWait wait = new WebDriverWait(driverFactory.getDriver(), 30);
+//        wait.until(ExpectedConditions.elementToBeClickable(driverFactory.getDriver().findElement(By.name("q")))).sendKeys("Selenium");
+        System.out.println(isElementPresent(searchTextbox));
         searchTextbox.sendKeys("Selenium");
         searchTextbox.sendKeys(Keys.RETURN);
 //

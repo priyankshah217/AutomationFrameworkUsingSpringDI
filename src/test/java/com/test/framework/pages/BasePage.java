@@ -1,14 +1,18 @@
 package com.test.framework.pages;
 
-import org.openqa.selenium.WebDriver;
+import com.test.framework.lib.DriverFactory;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebElement;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class BasePage {
+
     @Autowired
-    protected WebDriver webDriver;
+    protected DriverFactory driverFactory;
 
     public void launchURL(String url) {
-        webDriver.get(url);
+        driverFactory.getDriver().get(url);
     }
 
     protected void hardWait() {
@@ -16,6 +20,14 @@ public class BasePage {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
+        }
+    }
+
+    protected boolean isElementPresent(WebElement webElement) {
+        try {
+            return webElement.isDisplayed();
+        } catch (NoSuchElementException | TimeoutException ex) {
+            return false;
         }
     }
 }

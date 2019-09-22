@@ -14,9 +14,6 @@ public class AmazonHomePage extends BasePage {
         hardWait();
         amazonSearchTextbox.sendKeys("Computer");
         amazonSearchTextbox.sendKeys(Keys.RETURN);
-//
-//        webDriver.findElement(By.id("twotabsearchtextbox")).sendKeys("Computer");
-//        webDriver.findElement(By.id("twotabsearchtextbox")).sendKeys(Keys.RETURN);
     }
 
 

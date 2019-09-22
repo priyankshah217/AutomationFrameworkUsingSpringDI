@@ -19,6 +19,5 @@ public class BaseTest extends AbstractTestNGSpringContextTests {
             return;
         }
         webDriver.quit();
-        webDriver = null;
     }
 }

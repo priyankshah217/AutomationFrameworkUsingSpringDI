@@ -14,9 +14,6 @@ public class GoogleHomePage extends BasePage {
         hardWait();
         searchTextbox.sendKeys("Selenium");
         searchTextbox.sendKeys(Keys.RETURN);
-//
-//        webDriver.findElement(By.id("lst-ib")).sendKeys("Selenium");
-//        webDriver.findElement(By.id("lst-ib")).sendKeys(Keys.RETURN);
     }
 
 }

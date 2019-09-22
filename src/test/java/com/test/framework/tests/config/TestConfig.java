@@ -6,14 +6,22 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-import java.net.MalformedURLException;
-
 @Configuration
 @ComponentScan("com.test.framework")
 public class TestConfig {
 
-    @Bean
-    public WebDriver getDriver() throws MalformedURLException {
-        return new ChromeDriver();
+  WebDriver webDriver;
+
+  @Bean
+  public WebDriver getDriver() {
+    if (webDriver == null) {
+      webDriver = new ChromeDriver();
+      return webDriver;
     }
+    if (((ChromeDriver) webDriver).getSessionId() == null) {
+      webDriver = new ChromeDriver();
+      return webDriver;
+    }
+    return webDriver;
+  }
 }

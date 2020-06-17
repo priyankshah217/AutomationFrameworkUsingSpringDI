@@ -14,14 +14,12 @@ public class TestAmazonWeb extends BaseTest {
     private AmazonHomePage amazonHomePage;
 
     @Test
-    @DirtiesContext
     public void testGoogleSample() {
         googleHomePage.launchURL("http://www.google.com");
         googleHomePage.enterGoogleSearch();
     }
 
     @Test
-    @DirtiesContext
     public void testAmazonSample() {
         amazonHomePage.launchURL("http://www.amazon.in");
         amazonHomePage.enterAmazonSearch();

@@ -10,14 +10,14 @@ import org.testng.annotations.AfterMethod;
 
 @ContextConfiguration(classes = {TestConfig.class})
 public class BaseTest extends AbstractTestNGSpringContextTests {
+
     @Autowired
     WebDriver webDriver;
 
     @AfterMethod
     public void tearDown() {
-        if (webDriver == null) {
-            return;
+        if (webDriver != null) {
+            webDriver.quit();
         }
-        webDriver.quit();
     }
 }

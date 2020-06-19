@@ -2,9 +2,10 @@ package com.test.framework.tests;
 
 import com.test.framework.pages.AmazonHomePage;
 import com.test.framework.pages.GoogleHomePage;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.DirtiesContext;
-import org.testng.annotations.Test;
+
 
 public class TestAmazonWeb extends BaseTest {
     @Autowired
@@ -21,7 +22,6 @@ public class TestAmazonWeb extends BaseTest {
     }
 
     @Test
-    @DirtiesContext
     public void testAmazonSample() {
         amazonHomePage.launchURL("http://www.amazon.in");
         amazonHomePage.enterAmazonSearch();

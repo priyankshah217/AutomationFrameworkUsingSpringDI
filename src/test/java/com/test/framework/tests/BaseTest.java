@@ -1,21 +1,26 @@
 package com.test.framework.tests;
 
 import com.test.framework.tests.config.TestConfig;
-import org.openqa.selenium.WebDriver;
+import com.test.framework.util.DriverFactory;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.parallel.Execution;
+import org.junit.jupiter.api.parallel.ExecutionMode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
-import org.testng.annotations.AfterMethod;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 
+@Execution(ExecutionMode.CONCURRENT)
+@ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = {TestConfig.class})
-public class BaseTest extends AbstractTestNGSpringContextTests {
+public class BaseTest {
 
     @Autowired
-    private WebDriver webDriver;
+    private DriverFactory driverFactory;
 
-    @AfterMethod
+    @AfterEach
     public void tearDown() {
-        webDriver.quit();
+        driverFactory.removeDriver();
     }
 }

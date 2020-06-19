@@ -13,14 +13,11 @@ repositories {
 
 dependencies {
     compile group: 'org.springframework', name: 'spring-context', version: '5.2.7.RELEASE'
-    compile group: 'javax.inject', name: 'javax.inject', version: '1'
     testCompile group: 'org.springframework', name: 'spring-test', version: '5.2.7.RELEASE'
     compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.0.0-alpha-6'
-    testCompile group: 'org.testng', name: 'testng', version: '7.1.0'
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.6.2'
 }
 task e2e(type: Test) {
-    useTestNG() {
-        suites "src/test/resources/testng.xml"
-    }
+    useJUnitPlatform()
     systemProperties System.getProperties()
 }

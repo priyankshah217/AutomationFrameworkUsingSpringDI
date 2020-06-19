@@ -1,14 +1,15 @@
 package com.test.framework.pages;
 
-import org.openqa.selenium.WebDriver;
+import com.test.framework.util.DriverFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 public class BasePage {
+
     @Autowired
-    protected WebDriver webDriver;
+    protected DriverFactory driverFactory;
 
     public void launchURL(String url) {
-        webDriver.get(url);
+        driverFactory.getDriver().get(url);
     }
 
     protected void hardWait() {

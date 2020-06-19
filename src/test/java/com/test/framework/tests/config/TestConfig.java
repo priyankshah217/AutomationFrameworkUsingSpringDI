@@ -10,13 +10,13 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan("com.test.framework")
 public class TestConfig {
 
-  WebDriver webDriver;
+    private WebDriver webDriver;
 
-  @Bean
-  public WebDriver getDriver() {
-    if (webDriver == null || ((ChromeDriver) webDriver).getSessionId() == null) {
-      webDriver = new ChromeDriver();
+    @Bean
+    public WebDriver getDriver() {
+        if (webDriver == null || ((ChromeDriver) webDriver).getSessionId() == null) {
+            webDriver = new ChromeDriver();
+        }
+        return webDriver;
     }
-    return webDriver;
-  }
 }

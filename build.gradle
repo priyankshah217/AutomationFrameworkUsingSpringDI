@@ -19,7 +19,7 @@ dependencies {
     testCompile group: 'org.testng', name: 'testng', version: '7.1.0'
 }
 task e2e(type: Test) {
-    useTestNG(){
+    useTestNG() {
         suites "src/test/resources/testng.xml"
     }
     systemProperties System.getProperties()

@@ -14,11 +14,10 @@ public class TestConfig {
   WebDriver webDriver;
 
   @Bean
-  @Scope(scopeName = "prototype")
+  @Scope("prototype")
   public WebDriver getDriver() {
     if (webDriver == null || ((ChromeDriver) webDriver).getSessionId() == null) {
       webDriver = new ChromeDriver();
-      return webDriver;
     }
     return webDriver;
   }

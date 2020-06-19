@@ -5,7 +5,6 @@ import com.test.framework.pages.GoogleHomePage;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.test.annotation.DirtiesContext;
 
 
 public class TestAmazonWeb extends BaseTest {
@@ -23,7 +22,6 @@ public class TestAmazonWeb extends BaseTest {
     private AmazonHomePage amazonHomePage;
 
     @Test
-    @DirtiesContext
     public void testGoogleSample() {
         googleHomePage.launchURL(googleUrl);
         googleHomePage.enterGoogleSearch();

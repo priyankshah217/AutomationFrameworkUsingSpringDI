@@ -5,26 +5,22 @@ plugins {
 group 'com.spring'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 1.8
+sourceCompatibility = 14
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    // https://mvnrepository.com/artifact/org.springframework/spring-core
-    // https://mvnrepository.com/artifact/org.springframework/spring-context
-    compile group: 'org.springframework', name: 'spring-context', version: '5.0.8.RELEASE'
-    // https://mvnrepository.com/artifact/javax.inject/javax.inject
+    compile group: 'org.springframework', name: 'spring-context', version: '5.2.7.RELEASE'
     compile group: 'javax.inject', name: 'javax.inject', version: '1'
-    // https://mvnrepository.com/artifact/org.springframework/spring-test
-    testCompile group: 'org.springframework', name: 'spring-test', version: '5.0.8.RELEASE'
-// https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
-    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.14.0'
-//    compile group: 'com.browserstack', name: 'browserstack-local-java', version: '1.0.2'
+    testCompile group: 'org.springframework', name: 'spring-test', version: '5.2.7.RELEASE'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.0.0-alpha-6'
+    testCompile group: 'org.testng', name: 'testng', version: '7.1.0'
 }
 task e2e(type: Test) {
-    useJUnit()
+    useTestNG() {
+        suites "src/test/resources/testng.xml"
+    }
     systemProperties System.getProperties()
 }

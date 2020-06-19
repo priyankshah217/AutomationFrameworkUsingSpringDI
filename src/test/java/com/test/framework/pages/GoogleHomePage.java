@@ -7,16 +7,13 @@ import org.openqa.selenium.support.FindBy;
 
 @PageObject
 public class GoogleHomePage extends BasePage {
-    @FindBy(id = "lst-ib")
+    @FindBy(name = "q")
     private WebElement searchTextbox;
 
     public void enterGoogleSearch() {
         hardWait();
         searchTextbox.sendKeys("Selenium");
         searchTextbox.sendKeys(Keys.RETURN);
-//
-//        webDriver.findElement(By.id("lst-ib")).sendKeys("Selenium");
-//        webDriver.findElement(By.id("lst-ib")).sendKeys(Keys.RETURN);
     }
 
 }

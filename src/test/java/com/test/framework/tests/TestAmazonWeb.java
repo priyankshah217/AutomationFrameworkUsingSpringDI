@@ -2,20 +2,15 @@ package com.test.framework.tests;
 
 import com.test.framework.pages.AmazonHomePage;
 import com.test.framework.pages.GoogleHomePage;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.DirtiesContext;
 import org.testng.annotations.Test;
 
 public class TestAmazonWeb extends BaseTest {
-    @Autowired
-    private GoogleHomePage googleHomePage;
-
-    @Autowired
-    private AmazonHomePage amazonHomePage;
 
     @Test
     @DirtiesContext
     public void testGoogleSample() {
+        GoogleHomePage googleHomePage = getPage(GoogleHomePage.class);
         googleHomePage.launchURL("http://www.google.com");
         googleHomePage.enterGoogleSearch();
     }
@@ -23,6 +18,7 @@ public class TestAmazonWeb extends BaseTest {
     @Test
     @DirtiesContext
     public void testAmazonSample() {
+        AmazonHomePage amazonHomePage = getPage(AmazonHomePage.class);
         amazonHomePage.launchURL("http://www.amazon.in");
         amazonHomePage.enterAmazonSearch();
     }

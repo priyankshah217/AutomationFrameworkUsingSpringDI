@@ -3,7 +3,8 @@ package com.test.framework.pages;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class BasePage {
+
+public class BasePage implements IWebDriverAware {
     @Autowired
     protected WebDriver webDriver;
 
@@ -18,4 +19,10 @@ public class BasePage {
             e.printStackTrace();
         }
     }
+
+  @Override
+  public WebDriver getWebDriver() {
+    return webDriver;
+  }
+
 }

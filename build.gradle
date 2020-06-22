@@ -5,7 +5,7 @@ plugins {
 group 'com.spring'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 14
+sourceCompatibility = 8
 
 repositories {
     mavenCentral()
@@ -21,6 +21,7 @@ dependencies {
 task e2e(type: Test) {
     useTestNG() {
         suites "src/test/resources/testng.xml"
+        testLogging.showStandardStreams = true
     }
     systemProperties System.getProperties()
 }

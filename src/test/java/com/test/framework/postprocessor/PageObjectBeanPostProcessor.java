@@ -13,10 +13,8 @@ public class PageObjectBeanPostProcessor implements BeanPostProcessor {
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, @NotNull String beanName) throws BeansException {
-        if (bean.getClass().isAnnotationPresent(PageObject.class)) {
-            if (bean instanceof IWebDriverAware) {
-                PageFactory.initElements(((IWebDriverAware) bean).getWebDriver(), bean);
-            }
+        if (bean.getClass().isAnnotationPresent(PageObject.class) && bean instanceof IWebDriverAware) {
+            PageFactory.initElements(((IWebDriverAware) bean).getWebDriver(), bean);
         }
         return bean;
     }

@@ -1,7 +1,7 @@
 package com.test.framework.tests.config;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.springframework.beans.factory.config.CustomScopeConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -24,7 +24,7 @@ public class TestConfig {
     @Bean
     @Scope(scopeName = "thread")
     public WebDriver getDriver() {
-        return new ChromeDriver();
+        return new FirefoxDriver();
     }
 
 }

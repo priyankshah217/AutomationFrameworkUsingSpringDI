@@ -4,6 +4,6 @@ import org.openqa.selenium.WebDriver;
 
 public interface IWebDriverAware {
 
-  WebDriver getWebDriver();
+    WebDriver getWebDriver();
 
 }

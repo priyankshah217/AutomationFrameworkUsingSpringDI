@@ -20,9 +20,9 @@ public class BasePage implements IWebDriverAware {
         }
     }
 
-  @Override
-  public WebDriver getWebDriver() {
-    return webDriver;
-  }
+    @Override
+    public WebDriver getWebDriver() {
+        return webDriver;
+    }
 
 }
